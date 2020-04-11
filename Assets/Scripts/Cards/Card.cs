@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    public int Price;
+    public enum Category
+    {
+        Item,
+        Objective
+    }
+
+    public CardInfo Info;
 }
