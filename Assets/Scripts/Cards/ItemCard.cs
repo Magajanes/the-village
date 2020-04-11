@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class ItemCard : Card
 {
-    public int Cost;
+    public int Price;
     public Item Item;
 }
