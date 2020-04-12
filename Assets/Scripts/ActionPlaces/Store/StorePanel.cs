@@ -20,6 +20,7 @@ public class StorePanel : MonoBehaviour
             cards.Add(card);
             card.transform.SetParent(slot);
             card.transform.localPosition = Vector3.zero;
+            card.InitializeInfo();
         }
 
         return cards.ToArray();

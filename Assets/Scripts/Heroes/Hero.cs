@@ -90,12 +90,12 @@ public abstract class Hero : MonoBehaviour
 
     public bool CanBuy(ItemCard card)
     {
-        return currentCoinsAmount >= card.Price;
+        return currentCoinsAmount >= card.GetPrice();
     }
 
     public void Buy(ItemCard card)
     {
-        currentCoinsAmount -= card.Price;
+        currentCoinsAmount -= card.GetPrice();
         inventory.Add(card.Item);
     }
 

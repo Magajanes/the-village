@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\ActionPlaces\Store\StorePanel.cs" />
     <Compile Include="Assets\Scripts\Cards\Card.cs" />
     <Compile Include="Assets\Scripts\Cards\CardInfo.cs" />
+    <Compile Include="Assets\Scripts\Cards\InfoController.cs" />
     <Compile Include="Assets\Scripts\Cards\ItemCard.cs" />
     <Compile Include="Assets\Scripts\Cards\ObjectiveCard.cs" />
     <Compile Include="Assets\Scripts\Components\CharacterMovement.cs" />

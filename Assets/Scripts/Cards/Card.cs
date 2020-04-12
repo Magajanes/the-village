@@ -10,20 +10,39 @@ public class Card : MonoBehaviour
         Objective
     }
 
-    public CardInfo Info;
+    [SerializeField]
+    protected CardInfo info;
+    [SerializeField]
+    protected InfoController controller;
 
-    public class Cost
+    public void InitializeInfo()
     {
-        protected int coinCost;
-        protected int woodCost;
-        protected int stoneCost;
-        protected int ironCost;
-        protected int clayCost;
-        protected int plantCost;
+        controller.SetInfo(info);
     }
 
-    public class CoinCost : Cost
+    public int GetPrice()
     {
+        return info.Cost.Price;
+    }
+
+    [System.Serializable]
+    public class Cost
+    {
+        [SerializeField]
+        protected int coinCost;
+        [SerializeField]
+        protected int woodCost;
+        [SerializeField]
+        protected int stoneCost;
+        [SerializeField]
+        protected int ironCost;
+        [SerializeField]
+        protected int clayCost;
+        [SerializeField]
+        protected int plantCost;
+
+        protected Dictionary<Resource.Category, int> resourceCost = new Dictionary<Resource.Category, int>();
+
         public int Price
         {
             get
@@ -32,23 +51,18 @@ public class Card : MonoBehaviour
             }
         }
 
-        public CoinCost(int price)
+        public Dictionary<Resource.Category, int> ResourceCost
         {
-            coinCost = price;
-        }
-    }
+            get
+            {
+                resourceCost.Add(Resource.Category.Wood, woodCost);
+                resourceCost.Add(Resource.Category.Stone, stoneCost);
+                resourceCost.Add(Resource.Category.Iron, ironCost);
+                resourceCost.Add(Resource.Category.Clay, clayCost);
+                resourceCost.Add(Resource.Category.Plant, plantCost);
 
-    public class ResourceCost : Cost
-    {
-        public Dictionary<Resource.Category, int> Cost { get; } = new Dictionary<Resource.Category, int>();
-
-        public ResourceCost(int wood, int stone, int iron, int clay, int plant)
-        {
-            Cost.Add(Resource.Category.Wood, wood);
-            Cost.Add(Resource.Category.Stone, stone);
-            Cost.Add(Resource.Category.Iron, iron);
-            Cost.Add(Resource.Category.Clay, clay);
-            Cost.Add(Resource.Category.Plant, plant);
+                return resourceCost;
+            }
         }
     }
 }
